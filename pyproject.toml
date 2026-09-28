@@ -1,0 +1,15 @@
+[project]
+name = "dl-workshop"
+version = "0.1.0"
+description = "Workshop Deep Learning Dasar untuk Mahasiswa Teknik Telekomunikasi ITERA"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+    "jupyterlab>=4.1",
+    "ipykernel>=6.29",
+]
