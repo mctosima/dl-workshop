@@ -79,6 +79,7 @@ slides/
   scripts/make_figures.py    # gambar matplotlib untuk slide
   scripts/check_toy_example.py  # verifikasi angka contoh hitung manual
   sesi-1/main.typ, main.pdf  # slide Sesi 1 (Typst)
+  sesi-2/main.typ, main.pdf  # slide Sesi 2 (Typst); img/ disalin dari sesi-2-rnn/hasil/
 ```
 
 ## Website EDA NSL-KDD
@@ -102,6 +103,7 @@ Butuh [Typst](https://typst.app) ≥ 0.14 (paket `touying` dan `cetz` diunduh ot
 uv run python slides/scripts/make_figures.py      # regenerasi gambar
 uv run python slides/scripts/check_toy_example.py # cek angka contoh
 cd slides && typst compile --root . sesi-1/main.typ sesi-1/main.pdf
+typst compile --root . sesi-2/main.typ sesi-2/main.pdf   # dari folder slides/
 ```
 
 ## Build paper
