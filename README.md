@@ -36,8 +36,11 @@ Halaman workshop: <https://mctm.web.id/dl-workshop>
    *batch size*, jumlah neuron) lalu jalankan ulang.
 4. Jalankan materi Sesi 2 (buka di Jupyter Lab, berurutan):
    - `sesi-2-rnn/02_eksplorasi_data.ipynb` — mengenal data trafik
-   - `sesi-2-rnn/03_rnn_lstm_gru_vs_ann.ipynb` — membandingkan baseline, ANN, RNN, LSTM, GRU.
-     Tanpa GPU, set `CEPAT = True` di sel pengaturan agar selesai dalam beberapa menit.
+   - `sesi-2-rnn/03_rnn_lstm_gru_vs_ann.ipynb` — membandingkan baseline, ANN, RNN, LSTM, GRU (1 jam ke depan)
+   - `sesi-2-rnn/04_prediksi_24_jam.ipynb` — perbandingan yang sama untuk 24 jam ke depan
+   - `sesi-2-rnn/05_uji_ingatan.ipynb` — *adding problem*: kapan gerbang LSTM/GRU penting
+
+   Tanpa GPU, set `CEPAT = True` di sel pengaturan agar selesai dalam beberapa menit.
 
 ## Struktur repo
 
@@ -57,9 +60,11 @@ sesi-1-ann/                  # Sesi 1: ANN untuk deteksi intrusi jaringan
 sesi-2-rnn/                  # Sesi 2: RNN, LSTM, GRU vs ANN untuk prediksi trafik
   01_siapkan_data.ipynb      # (pengajar) milano.h5 -> CSV satu kotak (Duomo)
   02_eksplorasi_data.ipynb   # pola harian/mingguan, korelasi, autokorelasi, minggu Natal
-  03_rnn_lstm_gru_vs_ann.ipynb  # windowing, baseline naif, 4 model x 2 jendela x 3 seed
+  03_rnn_lstm_gru_vs_ann.ipynb  # windowing, baseline naif, 4 model x 2 jendela x 3 seed (1 jam ke depan)
+  04_prediksi_24_jam.ipynb   # idem, ramalan 24 jam ke depan sekaligus + error per jarak ramalan
+  05_uji_ingatan.ipynb       # adding problem T = 10..200: RNN vs LSTM vs GRU
   data/milano_duomo_5060.csv # trafik per jam kotak Duomo, 4 Nov - 29 Des 2013 (di-commit)
-  hasil/                     # grafik & metrik hasil notebook (di-commit)
+  hasil/                     # grafik EDA; h1/, h24/, ingatan/ = hasil notebook 03, 04, 05 (di-commit)
 eda-web/                     # website statis EDA NSL-KDD (buka index.html)
   index.html, style.css, app.js  # halaman & grafik SVG (tanpa pustaka, bisa offline)
   data.js                    # ringkasan data hasil build_data.py (di-commit)
