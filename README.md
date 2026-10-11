@@ -6,7 +6,7 @@ berfokus pada *hands-on* dengan PyTorch.
 | Sesi | Topik | Studi kasus |
 |---|---|---|
 | 1 | *Artificial Neural Network*: struktur, fungsi aktivasi, *feed forward*, *backpropagation* | Deteksi intrusi jaringan (NSL-KDD) |
-| 2 | RNN & LSTM (*time series*) | Prediksi trafik jaringan |
+| 2 | RNN, LSTM & GRU vs ANN (*time series*) | Prediksi trafik seluler kota Milan (Telecom Italia) |
 
 Halaman workshop: <https://mctm.web.id/dl-workshop>
 
@@ -34,6 +34,10 @@ Halaman workshop: <https://mctm.web.id/dl-workshop>
    grafik loss, *confusion matrix*, serta `metrics.json` di `sesi-1-ann/outputs/`.
    Untuk bereksperimen, ubah angka di `sesi-1-ann/config.py` (epoch, *learning rate*,
    *batch size*, jumlah neuron) lalu jalankan ulang.
+4. Jalankan materi Sesi 2 (buka di Jupyter Lab, berurutan):
+   - `sesi-2-rnn/02_eksplorasi_data.ipynb` — mengenal data trafik
+   - `sesi-2-rnn/03_rnn_lstm_gru_vs_ann.ipynb` — membandingkan baseline, ANN, RNN, LSTM, GRU.
+     Tanpa GPU, set `CEPAT = True` di sel pengaturan agar selesai dalam beberapa menit.
 
 ## Struktur repo
 
@@ -50,6 +54,12 @@ sesi-1-ann/                  # Sesi 1: ANN untuk deteksi intrusi jaringan
   evaluation.py              # prediksi & metrik
   plots.py                   # grafik loss & confusion matrix
   data/, outputs/            # dibuat otomatis (tidak di-commit)
+sesi-2-rnn/                  # Sesi 2: RNN, LSTM, GRU vs ANN untuk prediksi trafik
+  01_siapkan_data.ipynb      # (pengajar) milano.h5 -> CSV satu kotak (Duomo)
+  02_eksplorasi_data.ipynb   # pola harian/mingguan, korelasi, autokorelasi, minggu Natal
+  03_rnn_lstm_gru_vs_ann.ipynb  # windowing, baseline naif, 4 model x 2 jendela x 3 seed
+  data/milano_duomo_5060.csv # trafik per jam kotak Duomo, 4 Nov - 29 Des 2013 (di-commit)
+  hasil/                     # grafik & metrik hasil notebook (di-commit)
 eda-web/                     # website statis EDA NSL-KDD (buka index.html)
   index.html, style.css, app.js  # halaman & grafik SVG (tanpa pustaka, bisa offline)
   data.js                    # ringkasan data hasil build_data.py (di-commit)
@@ -96,3 +106,12 @@ uv run python paper/scripts/experiments.py    # ±1,5 menit di CPU
 uv run python paper/scripts/make_figures.py
 typst compile --root paper paper/main.typ paper/main.pdf
 ```
+
+## Data Sesi 2
+
+Trafik seluler kota Milan dari *Telecom Italia Big Data Challenge* (Barlacchi dkk., 2015,
+*Scientific Data* 2:150055, lisensi ODbL), dalam versi agregat per jam `milano.h5` dari
+Zhang dkk. (2021), *Dual Attention-Based Federated Learning for Wireless Traffic Prediction*,
+IEEE INFOCOM ([repo FedDA](https://github.com/chuanting/FedDA)). Peserta cukup memakai
+`sesi-2-rnn/data/milano_duomo_5060.csv`. Untuk membuat ulang CSV, unduh `milano.h5` (308 MB)
+ke `sesi-2-rnn/data/` lalu jalankan `01_siapkan_data.ipynb`.

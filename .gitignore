@@ -5,3 +5,4 @@ __pycache__/
 slides/**/out*/
 **/data/*.txt
 outputs/
+sesi-2-rnn/data/*.h5
