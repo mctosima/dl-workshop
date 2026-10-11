@@ -42,6 +42,11 @@ Halaman workshop: <https://mctm.web.id/dl-workshop>
 
    Tanpa GPU, set `CEPAT = True` di sel pengaturan agar selesai dalam beberapa menit.
 
+## Tugas
+
+Studi ablasi RNN, LSTM, GRU vs ANN (kelompok maks. 3 orang), tenggat **Rabu, 28 Oktober 2026, 23.59 WIB**.
+Petunjuk lengkap di [`tugas/README.md`](tugas/README.md); folder [`tugas/starter/`](tugas/starter) disalin menjadi repo kelompok.
+
 ## Struktur repo
 
 ```
@@ -58,13 +63,20 @@ sesi-1-ann/                  # Sesi 1: ANN untuk deteksi intrusi jaringan
   plots.py                   # grafik loss & confusion matrix
   data/, outputs/            # dibuat otomatis (tidak di-commit)
 sesi-2-rnn/                  # Sesi 2: RNN, LSTM, GRU vs ANN untuk prediksi trafik
-  01_siapkan_data.ipynb      # (pengajar) milano.h5 -> CSV satu kotak (Duomo)
+  01_siapkan_data.ipynb      # (pengajar) milano.h5 -> CSV kotak Duomo + 10 lokasi tugas
   02_eksplorasi_data.ipynb   # pola harian/mingguan, korelasi, autokorelasi, minggu Natal
   03_rnn_lstm_gru_vs_ann.ipynb  # windowing, baseline naif, 4 model x 2 jendela x 3 seed (1 jam ke depan)
   04_prediksi_24_jam.ipynb   # idem, ramalan 24 jam ke depan sekaligus + error per jarak ramalan
   05_uji_ingatan.ipynb       # adding problem T = 10..200: RNN vs LSTM vs GRU
   data/milano_duomo_5060.csv # trafik per jam kotak Duomo, 4 Nov - 29 Des 2013 (di-commit)
+  data/milano_tugas_10_lokasi.csv  # 10 lokasi lain untuk Bagian D tugas (di-commit)
   hasil/                     # grafik EDA; h1/, h24/, ingatan/ = hasil notebook 03, 04, 05 (di-commit)
+tugas/                       # tugas studi ablasi
+  README.md                  # petunjuk lengkap, penilaian, luaran
+  starter/                   # disalin peserta menjadi repo kelompok
+    tugas_ablasi.ipynb       # notebook eksperimen (pencatatan run ke hasil/ablasi.csv)
+    data/                    # salinan dua CSV di atas
+    laporan-latex/, laporan-typst/  # template laporan IEEE dua kolom
 eda-web/                     # website statis EDA NSL-KDD (buka index.html)
   index.html, style.css, app.js  # halaman & grafik SVG (tanpa pustaka, bisa offline)
   data.js                    # ringkasan data hasil build_data.py (di-commit)
@@ -121,4 +133,5 @@ Trafik seluler kota Milan dari *Telecom Italia Big Data Challenge* (Barlacchi dk
 Zhang dkk. (2021), *Dual Attention-Based Federated Learning for Wireless Traffic Prediction*,
 IEEE INFOCOM ([repo FedDA](https://github.com/chuanting/FedDA)). Peserta cukup memakai
 `sesi-2-rnn/data/milano_duomo_5060.csv`. Untuk membuat ulang CSV, unduh `milano.h5` (308 MB)
-ke `sesi-2-rnn/data/` lalu jalankan `01_siapkan_data.ipynb`.
+ke `sesi-2-rnn/data/` lalu jalankan `01_siapkan_data.ipynb` (bagian 5 juga membuat data 10 lokasi tugas;
+salin ulang ke `tugas/starter/data/` bila berubah).
